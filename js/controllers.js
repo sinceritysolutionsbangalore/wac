@@ -129,7 +129,7 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
       FCMPlugin.getToken(
         function(token){
           //	alert("token-"+token);
-          	var pushdata = {'deviceID':deviceInformation.uuid,'key':token};
+          	/* var pushdata = {'deviceID':deviceInformation.uuid,'key':token};
          	// alert('calling fileFactory saveUserToken');
          	//$fileFactory.saveUserToken(JSON.stringify(pushdata));
          	$http({
@@ -146,7 +146,7 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
             })
          	.error(function(error) {
             	//alert(JSON.stringify(error));
-         	});
+         	});*/
         },
         function(err){
           console.log('error retrieving token: ' + err);
