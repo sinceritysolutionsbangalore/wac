@@ -67,7 +67,7 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
 	  $ionicPlatform.ready(function() {
 
 		var deviceInformation = ionic.Platform.device();
-		alert("uuid-first - " + deviceInformation.uuid);
+// 		alert("uuid-first - " + deviceInformation.uuid);
 
 	  	// var uuid = $cordovaDevice.getUUID();
 	  	// alert("uuid - " + uuid);
@@ -100,8 +100,7 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
 	   if(ionic.Platform.isIPad() || ionic.Platform.isIOS()) {
       //if(window.localStorage.userdetailSaved){
        
-      	var userdata = [];
-      	userdata['deviceID'] = deviceInformation.uuid;
+      	var userdata = {'deviceID':deviceInformation.uuid};
           $http({
                method: 'POST',
                url: "http://ayurworld.org/push_notification/notification/save_user_info",
@@ -112,7 +111,7 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
                })
              })
          .success(function(data, status, headers, config) {
-                  alert(data.message);
+//                   alert(data.message);
                   if(data.status == false || data.status == "false"){
                     window.localStorage.userdetailSaved=true;
                   }
@@ -130,9 +129,7 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
       FCMPlugin.getToken(
         function(token){
           //	alert("token-"+token);
-          	var pushdata = [];
-         	pushdata['deviceID']=deviceInformation.uuid;
-         	pushdata['key']=token;
+          	var pushdata = {'deviceID':deviceInformation.uuid,'key':token};
          	// alert('calling fileFactory saveUserToken');
          	//$fileFactory.saveUserToken(JSON.stringify(pushdata));
          	$http({
@@ -145,10 +142,10 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
                })
             .success(function(data, status, headers, config) {
                   // alert(JSON.stringify(data));
-                  alert(data.message);
+                  //alert(data.message);
             })
          	.error(function(error) {
-            	alert(JSON.stringify(error));
+            	//alert(JSON.stringify(error));
          	});
         },
         function(err){
@@ -163,12 +160,12 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
         function(data){
           if(data.wasTapped){
             //Notification was received on device tray and tapped by the user.
-            alert( JSON.stringify(data) );
+           // alert( JSON.stringify(data) );
             alert(data.aps.alert["body"]);
 
           }else{
             //Notification was received in foreground. Maybe the user needs to be notified.
-            alert( JSON.stringify(data) );
+         //   alert( JSON.stringify(data) );
 			alert(data.aps.alert["body"]);
           }
         },
