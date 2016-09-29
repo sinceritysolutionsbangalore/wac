@@ -86,13 +86,13 @@ xmlns:gap="http://phonegap.com/ns/1.0">
     <icon src="icon/xxhdpi.png" qualifier="xxhdpi" />
     <icon src="icon/fr-xxhdpi.png" qualifier="fr-xxhdpi" />
 
-    <splash src="splash/mdpi.png" density="port-mdpi" />
-    <splash src="splash/hdpi.png" density="port-hdpi" />
-    <splash src="splash/xhdpi.png" density="port-xhdpi" />
+    <splash src="splash/mdpi.png" density="mdpi" />
+    <splash src="splash/hdpi.png" density="hdpi" />
+    <splash src="splash/xhdpi.png" density="xhdpi" />
     
-    <splash src="splash/mdpi-land.png" density="land-mdpi" />
+   <!-- <splash src="splash/mdpi-land.png" density="land-mdpi" />
     <splash src="splash/hdpi-land.png" density="land-hdpi" />
-    <splash src="splash/xhdpi-land.png" density="land-xhdpi" />
+    <splash src="splash/xhdpi-land.png" density="land-xhdpi" /> -->
 
     <splash src="splash.png" />
   </platform>
