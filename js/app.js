@@ -44,9 +44,12 @@ angular.module('starter', ['ionic','ionic.service.core','ngCordova',
           $http({
                method: 'POST',
                url: "http://ayurworld.org/push_notification/notification/save_user_info",
+		headers: {
+	        'Content-type': 'application/json'
+    		},
                data: {
-               user_data: JSON.stringify(results),
-               os : ionic.Platform.platform()
+               "user_data": JSON.stringify(results),
+               "os" : "android"
                }
                })
          .success(function(data, status, headers, config) {
