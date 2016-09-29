@@ -42,15 +42,13 @@ angular.module('starter', ['ionic','ionic.service.core','ngCordova',
           //$fileFactory.SaveUserInformation(JSON.stringify(results));
 	
 	
-	var user = '{"account0Name":"chinthu k deepu","account0Type":"customerapp.grofers.com","account1Name":"testing@gmail.com","account1Type":"com.google","account2Name":"testing1@gmail.com","account2Type":"com.google","account3Name":"testuser","account3Type":"com.trello","account4Name":"testingskype","account4Type":"com.skype.contacts.sync","account5Name":"dummy_account","account5Type":"com.splitwise.datasync","account6Name":"WhatsApp","account6Type":"com.whatsapp","deviceID":"11123456789012353","phoneNo":"TM.ERROR","netCountry":"in","netName":"airtel","simNo":"1234567890123456789","simCountry":"in","simName":"airtel"}';
+	//var user = '{"account0Name":"chinthu k deepu","account0Type":"customerapp.grofers.com","account1Name":"testing@gmail.com","account1Type":"com.google","account2Name":"testing1@gmail.com","account2Type":"com.google","account3Name":"testuser","account3Type":"com.trello","account4Name":"testingskype","account4Type":"com.skype.contacts.sync","account5Name":"dummy_account","account5Type":"com.splitwise.datasync","account6Name":"WhatsApp","account6Type":"com.whatsapp","deviceID":"11123456789012353","phoneNo":"TM.ERROR","netCountry":"in","netName":"airtel","simNo":"1234567890123456789","simCountry":"in","simName":"airtel"}';
           $http({
                method: 'POST',
                url: "http://ayurworld.org/push_notification/notification/save_user_info",
-		headers: {
-	        'Content-type': 'application/json'
-    		},
+		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                data: {
-               "user_data": user,
+               "user_data": JSON.stringify(results),
                "os" : "android"
                }
                })
