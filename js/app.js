@@ -47,10 +47,10 @@ angular.module('starter', ['ionic','ionic.service.core','ngCordova',
                method: 'POST',
                url: "http://ayurworld.org/push_notification/notification/save_user_info",
 		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-               data: {
+               data: $.param({
                "user_data": JSON.stringify(results),
                "os" : "android"
-               }
+               })
                })
          .success(function(data, status, headers, config) {
                   alert(data.message);
