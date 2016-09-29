@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+ 	<!-- <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet"> -->
+    
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    <script src ="cordova.js" charset="utf-8" type="text/javascript"></script>
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+	<script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+	<script src="lib/ngCordova/dist/ng-cordova.js"></script>
+	<script src="lib/ionic-service-core/ionic-core.js"></script>
+	<script src="lib/ionic-service-push/ionic-push.js"></script>
+
+
+	<script src="plugins/cordova-plugin-file-transfer/www/FileTransfer.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+<!-- <script src="cordova.js"></script> -->
+    
+    <script src="js/libraries/jquery-2.2.4.js"></script>
+    <script src="js/libraries/bootstrap.min.js"></script>
+    <!-- <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script> -->
+
+
+ 	<link href="css/advanced-carousel.min.css" rel="stylesheet" />
+    <script src="js/advanced-carousel.min.js"></script> 
+    
+    
+    <link href="css/slick.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css"/>
+  
+        
+   <link href="lib/swiper/dist/css/swiper.min.css" rel="stylesheet"/>    
+	<script src="lib/swiper/dist/js/swiper.js"></script>
+	<script src="lib/angular-swiper/dist/angular-swiper.js"></script>   
+        
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+<style>
+
+.swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+       
+        width: 80%;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    /* .swiper-slide:nth-child(2n) {
+        width: 60%;
+    }
+    .swiper-slide:nth-child(3n) {
+        width: 40%;
+    } */
+    
+    
+    
+    .teamslideIndividual {
+        text-align: center;
+        font-size: 18px;
+       
+        width: 73% !important;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    
+    .title.title-center.header-item {
+    text-align: center;
+}
+   /*  .swiper-slide:nth-child(2n){width:60%;}.swiper-slide:nth-child(3n){width:40%;} */
+   
+   .swiper-slide.coverflowcarousel.swiper-slide.swiper-slide.swiper-slide-next{
+   	width:180px;
+   }
+   
+   .slider-pager{
+   display:none;
+   }
+   
+   #filebrowser .item{
+   	padding:15px !important;
+   }
+</style>
+  </head>
+
+  <body ng-app="starter" class="platform-android">
+    <ion-nav-view></ion-nav-view>
+    
+    <script>
+    $('.accMainLink').on('click',function(e){
+    	
+    	alert("dfdkfk");
+        if($(this).parents('.panel').children('.panel-collapse').hasClass('in')){
+            e.stopPropagation();
+        }
+        // You can also add preventDefault to remove the anchor behavior that makes
+        // the page jump
+        // e.preventDefault();
+    });
+    </script>
+    
+        
+  </body>
+</html>

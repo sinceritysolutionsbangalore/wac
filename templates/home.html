@@ -1,0 +1,205 @@
+<ion-view id="pageContentID" view-title="World Ayurveda Congress" >
+
+    <ion-content>
+        
+        
+        <ion-slide-box auto-play="true">
+
+            <ion-slide>
+                <div class = "box box1">
+                    <div class="item item-image">
+                        <img src="http://www.ayurworld.org/wp-content/uploads/2016/08/mobile_slide1.jpg"/>
+                    </div>
+                </div>                
+            </ion-slide>
+
+            <ion-slide>
+                <div class = "box box2">
+                    <div class="item item-image">
+                        <img src="http://www.ayurworld.org/wp-content/uploads/2016/08/mobile_slide2.jpg"/>
+                    </div>
+                </div>                
+            </ion-slide>
+
+        </ion-slide-box>
+        
+        <div class='block1'>
+            <div class="row" style="width:100%;margin: 0;">
+                <div class="col col-50"> 
+                    <img width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/08/im1.jpg" class="center-block">
+                    <button class="button button-full button-balanced card-1 mt0" data-url="http://ayurworld.org/7th-wac-at-a-glance" data-ng-click="renderPage($event)">7th WAC at a Glance</button>
+                </div>
+                <div class="col col-50">    
+                    <img width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/08/im2.jpg" class="center-block">
+                    <button class="button button-full button-balanced card-1 mt0" data-url="http://ayurworld.org/call-for-papers" data-ng-click="renderPage($event)">Call For Papers</button>   
+                </div>
+            </div>
+
+            <div class="row" style="width:100%;margin: 0;">
+                <div class="col col-50"> 
+                    <img width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/08/im3.jpg" class="center-block">
+                    <button class="button button-full button-balanced card-1 mt0" data-url="http://ayurworld.org/fee-structure" data-ng-click="renderPage($event)">Fee Structure</button>
+                </div>
+                <div class="col col-50">    
+                    <img width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/08/im4.jpg" class="center-block">
+                    <button class="button button-full button-balanced card-1 mt0" data-url="http://ayurworld.org/focal-theme" data-ng-click="renderPage($event)">7th WAC Focal Theme</button>   
+                </div>
+            </div>
+
+            <div class="row" style="width:100%;margin: 0;">
+                <div class="col col-50"> 
+                    <img width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/08/im5.jpg" class="center-block">
+                    <button class="button button-full button-balanced card-1 mt0" data-url="http://ayurworld.org/organiser" data-ng-click="renderPage($event)">Organiser</button>
+                </div>
+                <div class="col col-50">    
+                    <img width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/08/im6.jpg" class="center-block">
+                    <button class="button button-full button-balanced card-1 mt0" data-url="http://ayurworld.org/guidelines" data-ng-click="renderPage($event)">Guidelines for Scientific Sessions</button>   
+                </div>
+            </div>        
+
+            <div class="row" style="width:100%;margin: 0;">
+                <div class="col col-50">
+                    <button ng-click="renderPage($event)" data-url='http://www.ayurworld.org/delegate-registration/' class="button button-full button-balanced card-1">
+                        <img width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/register.png" class="center-block">
+                        DELEGATE <br>REGISTRATION<br>&nbsp;
+                    </button>
+                </div>
+                <div class="col col-50">
+                    <button ng-click="renderPage($event)" class="button button-full button-balanced card-1" data-url='http://ayurworld.org/abstract-submission'>
+                        <img width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/abstract.png" class="center-block">
+                        ABSTRACT <br>SUBMISSION<br>&nbsp;
+                    </button>   
+                </div>
+            </div>    
+
+        </div>    
+
+        <div>
+
+            <div class='block3'  >
+                <!------------------------------------------------------------------------------------>
+                <div ng-controller="AppController as vm">
+                    <div id="carousel-6" class="carousel-wrapper" style="margin-bottom: 0px;padding-bottom: 0px;">                        
+                        <a-carousel
+                            carousel-options="::vm.carouselOptions6"
+                            array-provider="::vm.carouselData6"
+                            on-select="vm.onSelectCarousel(item)">
+                        </a-carousel>
+                    </div>
+                </div>    
+                <!------------------------------------------------------------------------------------>
+
+
+
+				<div class="ourteam">
+	                <h3 style='padding-top: 20px;padding-left: 10px;text-align: left;color:#ffffff;' class="text-center">Our Team</h3>
+	
+	                <!------------------------------------------------------------------------------------>
+	                <div ng-controller="TeamController as tm">
+	                    <div id="carousel-6" class="carousel-wrapper">                        
+	                        <a-carousel
+	                            carousel-options="::tm.carouselOptions6"
+	                            array-provider="::tm.carouselData6"
+	                            on-select="tm.onSelectCarousel(item)">
+	                        </a-carousel>
+	                    </div>
+	                </div>  
+                </div>  
+                <!------------------------------------------------------------------------------------>
+            </div>
+
+            <div class="row" style="width:100%;margin: 0;">
+                <div class="col col-50">
+                    <img class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/support.png" alt="">
+                </div>
+                <div class="col col-50">
+                    <img  class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/organiser.png" alt="">
+                </div>
+            </div>
+            <br>
+
+            <div class='block3'>
+                <h3 style='padding-top: 20px;padding-left: 10px;text-align: left;' class="text-center">7<sup>th</sup> WAC Projections</h3>
+                <div class="row" style="width:100%;margin: 0;">
+                    <div class="col col-25">
+                        <img class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/delegets_icon.png" alt="">
+                    </div>
+                    <div class="col col-25">
+                        <img  class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/countries_icon.png" alt="">
+                    </div>
+                    <div class="col col-25">
+                        <img class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/events_icon.png" alt="">
+                    </div>
+                    <div class="col col-25">
+                        <img  class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/visitors_icon.png" alt="">
+                    </div>
+                </div>
+                <br>
+            </div>
+
+            <h3 style='padding-top: 20px;padding-left: 10px;text-align: left;' class="text-center">Institutional Patrons</h3>
+            <div class="row" style="width:100%;margin: 0;">
+                <div class="col col-50">
+                    <img class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/04/AVS-Kottakkal-145x75.jpg" alt="">
+                </div>
+                <div class="col col-50">
+                    <img  class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/04/Institutional-Patrons-145x75.jpg" alt="">
+                </div>
+            </div>
+            <br>
+
+            <div class='block3'>
+                <h3 style='padding-top: 20px;padding-left: 10px;text-align: left;' class="text-center">Partner States</h3>
+                <div class="row" style="width:100%;margin: 0;">
+                    <div class="col col-25">
+                        <img class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/Government-of-Kerala.png" alt="">
+                    </div>
+                    <div class="col col-25">
+                        <img  class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/Government-of-Maharashtra.png" alt="">
+                    </div>
+                    <div class="col col-25">
+                        <img class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/Government-of-Madhya-Pradesh.png" alt="">
+                    </div>
+                    <div class="col col-25">
+                        <img  class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/government-of-west-bengal.png" alt="">
+                    </div>
+                </div>
+                <div style="text-align: left;padding-left: 10px"><a data-ng-click="renderPage($event)" data-url="http://ayurworld.org/partner-states/" class="btn btn-success btn-sm card-2">View More</a></div>
+                <br>
+            </div>
+
+            <h3 style='padding-top: 20px;padding-left: 10px;text-align: left;' class="text-center">Associates</h3>
+            <div class="row" style="width:100%;margin: 0;">
+                <div class="col col-25">
+                    <img class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/National-Institute-of-Ayurveda-Jaipur.jpg" alt="">
+                </div>
+                <div class="col col-25">
+                    <img  class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/nasya.jpg" alt="">
+                </div>
+                <div class="col col-25">
+                    <img class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/Uttarakhand-Ayurved-University.jpg" alt="">
+                </div>
+                <div class="col col-25">
+                    <img  class="card-2" width="100%" height="auto" src="http://www.ayurworld.org/wp-content/uploads/2016/09/National-Institute-of-Ayurveda-Jaipur.jpg" alt="">
+                </div>
+            </div>
+            <div style="text-align: left;padding-left: 10px"><a data-ng-click="renderPage($event)" data-url="http://ayurworld.org/associates/" class="btn btn-success btn-sm card-2">View More</a></div>
+            <br>
+
+
+
+            <!-- <div class="glyphicon glyphicon-comment">test</div>   ng-controller="AppCtrl"-->
+        </div>
+
+        <!-- <iframe  ng-src="{{trustSrc(currentProject.url)}}">
+            Something wrong...
+        </iframe> -->
+
+        <div ng-bind-html="player"></div>
+
+    </ion-content>
+</ion-view>
+
+
+
+

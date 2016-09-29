@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget id="com.ayurworld.wac" version="0.0.1" 
+xmlns="http://www.w3.org/ns/widgets" 
+xmlns:cdv="http://cordova.apache.org/ns/1.0"
+xmlns:gap="http://phonegap.com/ns/1.0">
+  <name>WAC</name>
+  <description>
+        World Ayurveda Congress
+    </description>
+  <author email="prasath@sincerity.in" href="http://sincerity.in.com/">
+     Prasath Arumugam
+    </author>
+  <content src="index.html"/>
+  <access origin="*"/>
+  <allow-navigation href="*" />
+  <preference name="webviewbounce" value="false"/>
+  <preference name="UIWebViewBounce" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
+
+  <preference name="android-minSdkVersion" value="16"/>
+  <preference name="BackupWebStorage" value="none"/>
+
+  <feature name="StatusBar">
+    <param name="ios-package" value="CDVStatusBar" onload="true"/>
+  </feature>
+
+  <plugin name="cordova-plugin-inappbrowser" />
+
+  <plugin name="cordova-plugin-whitelist" />
+
+  <plugin name="cordova-plugin-file" />
+
+  <plugin name="cordova-plugin-device" />
+  
+
+  <plugin spec="https://github.com/rrpathak007/cordova-plugin-fcm.git" source="git" />
+
+  <plugin name="com.vliesaputra.deviceinformation" spec="1.0.1" source="pgb" />
+
+  <plugin name="cordova-plugin-splashscreen" source="npm" />
+
+  <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+  <preference name="SplashScreenDelay" value="3000"/>
+  <preference name="SplashScreen" value="screen"/>
+  <preference name="FadeSplashScreenDuration" value="2000"/>
+
+
+  <platform name="ios">
+    
+    <access origin="*" subdomains="true" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <icon src="icon/icon.png" width="57" height="57"/>
+    <icon src="icon/icon@2x.png" width="114" height="114"/>
+    <icon src="icon/icon-40.png" width="40" height="40"/>
+    <icon src="icon/icon-40@2x.png" width="80" height="80"/>
+    <icon src="icon/icon-50.png" width="50" height="50"/>
+    <icon src="icon/icon-50@2x.png" width="100" height="100"/>
+    <icon src="icon/icon-60@2x.png" width="120" height="120"/>
+    <icon src="icon/icon-60@3x.png" width="180" height="180"/>
+    <icon src="icon/icon-72.png" width="72" height="72"/>
+    <icon src="icon/icon-72@2x.png" width="144" height="144"/>
+    <icon src="icon/icon-76.png" width="76" height="76"/>
+    <icon src="icon/icon-76@2x.png" width="152" height="152"/>
+    <icon src="icon/icon-83.5@2x.png" width="167" height="167"/>
+    <icon src="icon/icon-small.png" width="29" height="29"/>
+    <icon src="icon/icon-small@2x.png" width="58" height="58"/>
+    <icon src="icon/icon-small@3x.png" width="87" height="87"/>
+    <splash src="splash/Default-568h@2x~iphone.png" height="1136" width="640"/>
+    <splash src="splash/Default-667h.png" height="1334" width="750"/>
+    <splash src="splash/Default-736h.png" height="2208" width="1242"/>
+    <splash src="splash/Default-Landscape-736h.png" height="1242" width="2208"/>
+    <splash src="splash/Default-Landscape@2x~ipad.png" height="1536" width="2048"/>
+    <splash src="splash/Default-Landscape~ipad.png" height="768" width="1024"/>
+    <splash src="splash/Default-Portrait@2x~ipad.png" height="2048" width="1536"/>
+    <splash src="splash/Default-Portrait@~ipadpro.png" height="2732" width="2048"/>
+    <splash src="splash/Default-Portrait~ipad.png" height="1024" width="768"/>
+    <splash src="splash/Default@2x~iphone.png" height="960" width="640"/>
+    <splash src="splash/Default~iphone.png" height="480" width="320"/>
+  </platform>
+  <platform name="android">
+    <icon src="icon/ldpi.png" qualifier="ldpi" />
+    <icon src="icon/mdpi.png" qualifier="mdpi" />
+    <icon src="icon/hdpi.png" qualifier="hdpi" />
+    <icon src="icon/xhdpi.png" qualifier="xhdpi" />
+    <icon src="icon/xxhdpi.png" qualifier="xxhdpi" />
+    <icon src="icon/fr-xxhdpi.png" qualifier="fr-xxhdpi" />
+
+    <splash src="splash/mdpi.png" density="port-mdpi" />
+    <splash src="splash/hdpi.png" density="port-hdpi" />
+    <splash src="splash/xhdpi.png" density="port-xhdpi" />
+    
+    <splash src="splash/mdpi-land.png" density="land-mdpi" />
+    <splash src="splash/hdpi-land.png" density="land-hdpi" />
+    <splash src="splash/xhdpi-land.png" density="land-xhdpi" />
+
+    <splash src="splash.png" />
+  </platform>
+</widget>
+
+<!-- AIzaSyDkf01aAMs6tAvJimM57E7wblYkE5mtyMU -->
+<!-- wac2016@ayurworld -->
+<!-- alias wacj2016 -->
+<!-- com.ionicframework.wac143177 -->

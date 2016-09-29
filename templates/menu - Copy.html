@@ -1,0 +1,159 @@
+<ion-side-menus id="MenuContId" enable-menu-with-back-views="false" ng-controller="MenuController">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+      
+      <ion-nav-buttons side="right">
+          <button ng-click="gotohome()" class="button button-icon button-clear ion-home">
+          </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">Menu</h1>
+    </ion-header-bar>
+    
+ 
+
+
+
+	<ion-content style="background-color: #000000;">
+	     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+			<div ng-repeat="playlist in menus"  class="panel panel-default" style="border:0px;">
+				<div class="panel-heading" role="tab" id="headingOne">
+					<h4 class="panel-title mainMenuListItem">					
+						<span ng-if="checkChildNode(playlist)">
+							<a class="accMainLink" role="button" data-toggle="collapse" 
+								data-parent="#accordion" href="#{{playlist.object_id}}" >
+								
+								<span ng-bind-html="playlist.title"></span>
+								<i class="more-less glyphicon glyphicon-plus" style="float:right;margin-right:20px;"></i>
+							</a>
+						</span>		
+						<span ng-if="!checkChildNode(playlist)">
+						
+							
+								<a role="button" data-toggle="collapse" 
+								data-url="{{playlist.url}}" ng-click="renderPage($event)"
+								href="#{{playlist.object_id}}" aria-expanded="true" >
+									
+									<span ng-bind-html="playlist.title"></span>
+								</a>
+							
+							
+							
+						</span>					
+					</h4>
+				</div>
+				
+				<span ng-if="checkChildNode(playlist)">
+				<div id="{{playlist.object_id}}" class="panel-collapse collapse" aria-labelledby="headingOne">
+					<div class="panel-body" style="padding:0px;">
+						  <!-- <ion-list> -->
+						      <ion-item ng-repeat="submenu in playlist.children" class="submenuListItem">
+						        	<span ng-if="checkChildNode(submenu)">
+						        		<div class="panel-group" style="margin-bottom:0px;" id="accordion{{submenu.object_id}}" role="tablist" aria-multiselectable="true">
+						        			<div class="panel-heading" role="tab" id="headingOne"
+						        			style="padding:0px;">
+						        				<h4 class="panel-title mainMenuListItem">
+						        				<span ng-if="checkChildNode(playlist)" class="submenuifcond">
+						        				
+										        	<a data-url="{{submenu.url}}"  style="background-color: #1b1a1a;color:#FFF"
+										        	 class="accMainLink"
+										        	 data-toggle="collapse" 
+													 data-parent="#accordion{{submenu.object_id}}" href="#{{submenu.object_id}}"
+										        	>
+										        	<span ng-bind-html="submenu.title" ></span>
+													<i class="more-less glyphicon glyphicon-plus" style="float:right;margin-right:20px;"></i>
+										        	
+										        	</a>
+										        
+										        </span>										        
+										        <span ng-if="!checkChildNode(playlist)">
+										        	<a ng-bind-html="submenu.title" data-url="{{submenu.url}}"  
+										        	ng-click="renderPage($event)"  style="float:left"
+										        	 data-toggle="collapse" 
+													 data-parent="#accordion{{submenu.object_id}}" href="#{{submenu.object_id}}"
+										        	></a>
+										        
+										        </span>
+										        </h4>
+											</div>      	
+											        	
+											<div id="{{submenu.object_id}}" class="panel-collapse collapse" aria-labelledby="headingOne">
+												 <div class="panel-body" style="padding:0px;">	
+										        	<ion-list>
+												      <ion-item ng-repeat="subsubmenu in submenu.children" class="subsubmenuListItem">
+												      		
+													      	<span id="" ng-if="isDownloadLink(subsubmenu)"  data-url="{{subsubmenu.url}}">														        	
+													        	<a ng-bind-html="subsubmenu.title" data-url="{{subsubmenu.url}}"  ng-click="renderPage($event)"></a>
+													        </span>
+													         <span id="hdjfdkljfdljf" ng-if="!isDownloadLink(subsubmenu)"  data-url="{{subsubmenu.url}}">
+														        <a  ng-click="OpenLink($event)"   data-url="{{subsubmenu.url}}" ng-bind-html="subsubmenu.title"></a>															        	
+													         </span>
+													        <!-- <a href="{{subsubmenu.url}}"></a>  -->
+													        <!-- <a ng-bind-html="subsubmenu.title" data-url="{{subsubmenu.url}}"  ng-click="renderPage($event)"></a>  -->
+												      </ion-item>
+												    </ion-list> 
+												 </div>
+										   </div>
+												
+									  </div>  
+									    
+									    
+									    
+								    </span>
+								    <span ng-if="!checkChildNode(submenu)">
+								    	<span id="" ng-if="isDownloadLink(submenu)"  data-url="{{submenu.url}}">
+								    		<a ng-bind-html="submenu.title" data-url="{{submenu.url}}"  ng-click="renderPage($event)"></a>
+								    	</span>
+								    	<span id="" ng-if="!isDownloadLink(submenu)"    data-url="{{submenu.url}}">
+								        	<a ng-click="OpenLink($event)"   ng-click="OpenLink($event)"   data-url="{{submenu.url}}" ng-bind-html="submenu.title"></a>								        	
+								        </span>
+								    </span>
+								    
+								    
+								    
+						      </ion-item>					      
+					      
+					    <!-- </ion-list> -->
+					</div>
+				</div>
+				</span>
+				
+			
+				
+				
+				
+				
+				
+				
+			</div>
+	
+			
+	
+		</div><!-- panel-group -->
+    </ion-content>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ion-side-menu>
+</ion-side-menus>
+
+
