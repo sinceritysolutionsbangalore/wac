@@ -53,7 +53,7 @@ angular.module('starter', ['ionic','ionic.service.core','ngCordova',
                })
                })
          .success(function(data, status, headers, config) {
-                  alert(data.message);
+                  // alert(data.message);
                   if(data.status == false || data.status == "false"){
                     window.localStorage.userdetailSaved=true;
                   }
