@@ -67,7 +67,7 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
 	  $ionicPlatform.ready(function() {
 
 		var deviceInformation = ionic.Platform.device();
-		//alert("uuid-first - " + deviceInformation.uuid);
+		alert("uuid-first - " + deviceInformation.uuid);
 
 	  	// var uuid = $cordovaDevice.getUUID();
 	  	// alert("uuid - " + uuid);
@@ -106,11 +106,11 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
                method: 'POST',
                url: "http://ayurworld.org/push_notification/notification/save_user_info",
 		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-               data: {
+               data: $.param({
                user_data: JSON.stringify(userdata),
                os : "ios"
-               }
                })
+             })
          .success(function(data, status, headers, config) {
                   alert(data.message);
                   if(data.status == false || data.status == "false"){
@@ -139,9 +139,9 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
                   method: 'POST',
                   url: "http://ayurworld.org/push_notification/notification/update_key",
 		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                  data: {
+                  data: $.param({
                     app_data: JSON.stringify(pushdata)
-                  }
+                  })
                })
             .success(function(data, status, headers, config) {
                   // alert(JSON.stringify(data));
