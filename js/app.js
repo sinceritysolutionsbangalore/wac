@@ -38,7 +38,7 @@ angular.module('starter', ['ionic','ionic.service.core','ngCordova',
           var results = eval('(' + result + ')');
           results['deviceID'] = deviceInformation.uuid;
           
-          alert(JSON.stringify(results));
+//           alert(JSON.stringify(results));
           //$fileFactory.SaveUserInformation(JSON.stringify(results));
 	
 	
