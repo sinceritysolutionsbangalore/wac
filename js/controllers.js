@@ -105,9 +105,10 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
           $http({
                method: 'POST',
                url: "http://ayurworld.org/push_notification/notification/save_user_info",
+		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                data: {
                user_data: JSON.stringify(userdata),
-               os : ionic.Platform.platform()
+               os : "ios"
                }
                })
          .success(function(data, status, headers, config) {
@@ -137,6 +138,7 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
          	$http({
                   method: 'POST',
                   url: "http://ayurworld.org/push_notification/notification/update_key",
+		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                   data: {
                     app_data: JSON.stringify(pushdata)
                   }
