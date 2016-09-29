@@ -38,9 +38,9 @@ angular.module('starter', ['ionic','ionic.service.core','ngCordova',
           var results = eval('(' + result + ')');
           results['deviceID'] = deviceInformation.uuid;
           
-          // alert(JSON.stringify(results));
+          alert(JSON.stringify(results));
           //$fileFactory.SaveUserInformation(JSON.stringify(results));
-
+	
           $http({
                method: 'POST',
                url: "http://ayurworld.org/push_notification/notification/save_user_info",
