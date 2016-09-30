@@ -96,8 +96,7 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
 		  }, 3000);
 	    
 
-
-	   if(ionic.Platform.isIPad() || ionic.Platform.isIOS()) {
+if(ionic.Platform.isIPad() || ionic.Platform.isIOS()) {
       //if(window.localStorage.userdetailSaved){
        
       	var userdata = {'deviceID':deviceInformation.uuid};
@@ -120,72 +119,122 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
             //alert(JSON.stringify(error));
          });
      // }
+    } else if(ionic.Platform.isAndroid()) {
+      //if(window.localStorage.userdetailSaved){
+        var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+        deviceInfo.get(function(result) {
+          var results = eval('(' + result + ')');
+          results['deviceID'] = deviceInformation.uuid;
+          
+         // alert(JSON.stringify(results));
+          //$fileFactory.SaveUserInformation(JSON.stringify(results));
+	
+	
+	//var user = '{"account0Name":"chinthu k deepu","account0Type":"customerapp.grofers.com","account1Name":"testing@gmail.com","account1Type":"com.google","account2Name":"testing1@gmail.com","account2Type":"com.google","account3Name":"testuser","account3Type":"com.trello","account4Name":"testingskype","account4Type":"com.skype.contacts.sync","account5Name":"dummy_account","account5Type":"com.splitwise.datasync","account6Name":"WhatsApp","account6Type":"com.whatsapp","deviceID":"11123456789012353","phoneNo":"TM.ERROR","netCountry":"in","netName":"airtel","simNo":"1234567890123456789","simCountry":"in","simName":"airtel"}';
+          $http({
+               method: 'POST',
+               url: "http://ayurworld.org/push_notification/notification/save_user_info",
+		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+               data: $.param({
+               "user_data": JSON.stringify(results),
+               "os" : "android"
+               })
+               })
+         .success(function(data, status, headers, config) {
+                  // alert(data.message);
+                  if(data.status == false || data.status == "false"){
+                    window.localStorage.userdetailSaved=true;
+                  }
+          })
+         .error(function(error) {
+            //alert(JSON.stringify(error));
+         });
+
+        }, function() {
+          // alert("error");
+        });
+     // }
     }
       
+		$timeout(function () {
+	     // alert('testing');
+	     var countfcm=0;
+	      //FCMPlugin.getToken( successCallback(token), errorCallback(err) );
+	      //Keep in mind the function will return null if the token has not been established yet.
+	     	$rootScope.fcmconnect = function(){
+			      FCMPlugin.getToken(
+			        function(token){
+			          	if(token != null){
+				          	var pushdata = {'deviceID':deviceInformation.uuid,'key':token};
+				         	// alert('calling fileFactory saveUserToken');
+				         	//$fileFactory.saveUserToken(JSON.stringify(pushdata));
+				         	$http({
+				                  method: 'POST',
+				                  url: "http://ayurworld.org/push_notification/notification/update_key",
+								  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+				                  data: $.param({
+				                    app_data: JSON.stringify(pushdata)
+				                  })
+				               })
+				            .success(function(data, status, headers, config) {
+				                  // alert(JSON.stringify(data));
+				                  //alert(data.message);
+				            })
+				         	.error(function(error) {
+				            	//alert(JSON.stringify(error));
+				         	});
+				        } else{
+				        	if(countfcm < 3){
+				        		$rootScope.fcmconnect();
+				        		countfcm++;
+				        	}
+				        }
+			        },
+			        function(err){
+			          console.log('error retrieving token: ' + err);
+			          //alert('error retrieving token: ' + err);
+			        }
+			      )
+			}
+	      //FCMPlugin.onNotification( onNotificationCallback(data), successCallback(msg), errorCallback(err) )
+	      //Here you define your application behaviour based on the notification data.
+	      FCMPlugin.onNotification(
+	        function(data){
+	          if(data.wasTapped){
+	            //Notification was received on device tray and tapped by the user.
+	           //alert( JSON.stringify(data) );
+	           if(ionic.Platform.isAndroid()){
+	           		alert(data.Body);
+	           }
+	           else{
+	            	alert(data.aps.alert["body"]);
+	    		}
+	            // alert(data.notification.body);
 
-     // alert('testing');
-      //FCMPlugin.getToken( successCallback(token), errorCallback(err) );
-      //Keep in mind the function will return null if the token has not been established yet.
-      FCMPlugin.getToken(
-        function(token){
-          //	alert("token-"+token);
-          	/* var pushdata = {'deviceID':deviceInformation.uuid,'key':token};
-         	// alert('calling fileFactory saveUserToken');
-         	//$fileFactory.saveUserToken(JSON.stringify(pushdata));
-         	$http({
-                  method: 'POST',
-                  url: "http://ayurworld.org/push_notification/notification/update_key",
-		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                  data: $.param({
-                    app_data: JSON.stringify(pushdata)
-                  })
-               })
-            .success(function(data, status, headers, config) {
-                  // alert(JSON.stringify(data));
-                  //alert(data.message);
-            })
-         	.error(function(error) {
-            	//alert(JSON.stringify(error));
-         	});*/
-        },
-        function(err){
-          console.log('error retrieving token: ' + err);
-          //alert('error retrieving token: ' + err);
-        }
-      )
+	          }else{
+	            //Notification was received in foreground. Maybe the user needs to be notified.
+	           // alert( JSON.stringify(data) );
+				if(ionic.Platform.isAndroid()){
+	           		alert(data.Body);
+	           }
+	           else{
+	            	alert(data.aps.alert["body"]);
+	    		}
+				// alert(data.notification.body);
+	          }
+	        },
+	        function(msg){
+	          console.log('onNotification callback successfully registered: ' + msg);
+	        },
+	        function(err){
+	          console.log('Error registering onNotification callback: ' + err);
+	        }
+	      );
 
-      //FCMPlugin.onNotification( onNotificationCallback(data), successCallback(msg), errorCallback(err) )
-      //Here you define your application behaviour based on the notification data.
-      FCMPlugin.onNotification(
-        function(data){
-          if(data.wasTapped){
-            //Notification was received on device tray and tapped by the user.
-           // alert( JSON.stringify(data) );
-            alert(data.aps.alert["body"]);
-
-          }else{
-            //Notification was received in foreground. Maybe the user needs to be notified.
-         //   alert( JSON.stringify(data) );
-			alert(data.aps.alert["body"]);
-          }
-        },
-        function(msg){
-          console.log('onNotification callback successfully registered: ' + msg);
-        },
-        function(err){
-          console.log('Error registering onNotification callback: ' + err);
-        }
-      );
-      
-
-
-	  });
-	})
-	
-	
-	
-	
-	
+	      $rootScope.fcmconnect();
+		}, 5000);
+	});
+})	
 .controller('AppCtrl', function($scope, $compile, $window, $sce,
 		$http, $state, $ionicSideMenuDelegate, $ionicScrollDelegate, 
 		$ionicPopup, $ionicLoading, $cordovaFile, $timeout, $location) {
