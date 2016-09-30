@@ -32,7 +32,9 @@
       "id": "cordova-plugin-fcm"
     },
     "ionic-plugin-deploy",
-    "cordova-plugin-file"
+    "cordova-plugin-file",
+    "cordova-plugin-file-transfer",
+    "com.cordova.plugins.fileopener"
   ],
   "cordovaPlatforms": [
     "ios"
