@@ -28,7 +28,7 @@
       "id": "com.phonegap.plugins.PushPlugin"
     },
     {
-      "locator": "https://github.com/rrpathak007/cordova-plugin-fcm.git",
+      "locator": "https://github.com/rrpathak007/cordova-plugin-fcm-plus.git",
       "id": "cordova-plugin-fcm"
     },
     "ionic-plugin-deploy",
