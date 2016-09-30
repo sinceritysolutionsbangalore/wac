@@ -31,46 +31,6 @@ angular.module('starter', ['ionic','ionic.service.core','ngCordova',
       });
       
 
-    if(ionic.Platform.isAndroid()) {
-      //if(window.localStorage.userdetailSaved){
-        var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
-        deviceInfo.get(function(result) {
-          var results = eval('(' + result + ')');
-          results['deviceID'] = deviceInformation.uuid;
-          
-//           alert(JSON.stringify(results));
-          //$fileFactory.SaveUserInformation(JSON.stringify(results));
-	
-	
-	//var user = '{"account0Name":"chinthu k deepu","account0Type":"customerapp.grofers.com","account1Name":"testing@gmail.com","account1Type":"com.google","account2Name":"testing1@gmail.com","account2Type":"com.google","account3Name":"testuser","account3Type":"com.trello","account4Name":"testingskype","account4Type":"com.skype.contacts.sync","account5Name":"dummy_account","account5Type":"com.splitwise.datasync","account6Name":"WhatsApp","account6Type":"com.whatsapp","deviceID":"11123456789012353","phoneNo":"TM.ERROR","netCountry":"in","netName":"airtel","simNo":"1234567890123456789","simCountry":"in","simName":"airtel"}';
-          $http({
-               method: 'POST',
-               url: "http://ayurworld.org/push_notification/notification/save_user_info",
-		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-               data: $.param({
-               "user_data": JSON.stringify(results),
-               "os" : "android"
-               })
-               })
-         .success(function(data, status, headers, config) {
-                  // alert(data.message);
-                  if(data.status == false || data.status == "false"){
-                    window.localStorage.userdetailSaved=true;
-                  }
-          })
-         .error(function(error) {
-            //alert(JSON.stringify(error));
-         });
-
-        }, function() {
-          // alert("error");
-        });
-     // }
-    }
-      
-
-      
-
     /* push.register(function(token) {
         console.log("Device token:",token.token);
       }); */  
