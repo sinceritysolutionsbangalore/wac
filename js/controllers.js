@@ -204,18 +204,22 @@ if(ionic.Platform.isIPad() || ionic.Platform.isIOS()) {
 	            //Notification was received on device tray and tapped by the user.
 	           //alert( JSON.stringify(data) );
 	           if(ionic.Platform.isAndroid()){
+			 if(data.Body){
 	           		alert(data.Body);
+		  	 }
 	           }
 	           else{
 	            	alert(data.aps.alert["body"]);
-	    		}
+	    	}
 	            // alert(data.notification.body);
 
 	          }else{
 	            //Notification was received in foreground. Maybe the user needs to be notified.
 	           // alert( JSON.stringify(data) );
-				if(ionic.Platform.isAndroid()){
+		if(ionic.Platform.isAndroid()){
+			if(data.Body){
 	           		alert(data.Body);
+			}
 	           }
 	           else{
 	            	alert(data.aps.alert["body"]);
