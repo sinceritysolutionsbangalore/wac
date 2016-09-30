@@ -36,13 +36,15 @@ xmlns:gap="http://phonegap.com/ns/1.0">
 
   <plugin name="cordova-plugin-file" />
 
+  <plugin name="cordova-plugin-file-transfer" />
+  
+  <plugin name="com.cordova.plugins.fileopener" spec="1.0.1" source="pgb" />
+
   <plugin name="cordova-plugin-device" />
   
   <plugin spec="https://github.com/rrpathak007/cordova-plugin-fcm.git" source="git" />
 
   <plugin name="com.vliesaputra.deviceinformation" spec="1.0.1" source="pgb" />
-  
-  <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 
   <platform name="ios">
     
