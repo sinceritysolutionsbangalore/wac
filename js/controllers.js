@@ -4,7 +4,7 @@ var historyArray = [];
 angular.module('starter.controllers', ['ionic','ngCordova'])
 
 .run(function($window, $http,$rootScope, $ionicSideMenuDelegate,
-		$ionicPlatform, $ionicPopup, $ionicLoading, $timeout) {
+		$ionicPlatform, $ionicPopup, $ionicLoading, $timeout, $cordovaDialogs) {
 	
 	
 	$ionicLoading.show({
@@ -209,7 +209,10 @@ if(ionic.Platform.isIPad() || ionic.Platform.isIOS()) {
 		  	 }
 	           }
 	           else{
-	            	alert(data.aps.alert["body"]);
+	            	$cordovaDialogs.alert(data.aps.alert["body"], data.aps.alert["title"], 'OK')
+						    .then(function() {
+						      // callback success
+						    });
 	    	}
 	            // alert(data.notification.body);
 
@@ -222,7 +225,10 @@ if(ionic.Platform.isIPad() || ionic.Platform.isIOS()) {
 			}
 	           }
 	           else{
-	            	alert(data.aps.alert["body"]);
+			$cordovaDialogs.alert(data.aps.alert["body"], data.aps.alert["title"], 'OK')
+						    .then(function() {
+						      // callback success
+						    });
 	    		}
 				// alert(data.notification.body);
 	          }
