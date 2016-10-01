@@ -44,7 +44,7 @@ xmlns:gap="http://phonegap.com/ns/1.0">
   
   <plugin name="cordova-plugin-dialogs" />
   
-  <plugin spec="https://github.com/rrpathak007/cordova-plugin-fcm-plus.git" source="git" />
+  <plugin spec="https://github.com/bhumika/cordova-plugin-fcm-plus.git" source="git" />
 
   <plugin name="com.vliesaputra.deviceinformation" spec="1.0.1" source="pgb" />
 
